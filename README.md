@@ -12,6 +12,14 @@ Open to collaboration—feel free to contact me!<br />
 Process the EEG data from raw and complete some basic analyses (fft/itpc).
 ## Prerequisites
 All scripts are written in MATLAB and expect EEG data in a semi-processed FieldTrip format, with raw data initially in TaskEngine format. Preprocessing is done using EEGLAB as I am not familiar with FieldTrip preprocessing.
+## Stimuli
+### gen_beeps.m
+Generates perfectly sinusoidal beeps where the AM and FM frequencies, duration and modulation can be controlled. Can create multiple sound files in one run.
+### bbkCreateVideoEntrainmentStimuli.py
+Generates steady state videos from static images that alternate between these images and a black screen. Users can control the duration and AM frequency of the flashing. The script takes into account the screen refresh rate, video output format and screen resolution in pixels to ensure a perfect video for the setup provided.
+If an incompatible screen refresh rate and AM frequency are selected then the script will correct to the nearest compatible set of frequencies. Further notes are provided in the script.
+### calc_luminance_across_videos.py and calc_motion_across_videos.py 
+Loops over a folder of videos and calculates the luminance and motion of the the frames either in real time or on a per frame basis. These are useful when conducting an auditory only steady state paradigm with a video on screen to hold attention. The results from these scripts can be run through an FFT to check for peak frequencies that could interfere with the resposnes to the audio stimuli. 
 ## Optional
 ### sanity_check_arbaclofen.m
 An optional sanity check that:
